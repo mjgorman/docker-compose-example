@@ -5,7 +5,7 @@ This example shows how to setup a scalable application backed by a redis server 
 
 Docker 1.9
 Docker Machine on OSX(Minor changes to compose file needed to run on true cluster)
-Docker swarm setup with at least 3 nodes for true test
+Docker swarm setup with at least 3 nodes for true test (https://docs.docker.com/swarm/install-w-machine/)
 
 #Usage
 
