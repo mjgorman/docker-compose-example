@@ -9,7 +9,7 @@ Docker Machine on OSX(Minor changes to compose file needed to run on true cluste
 
 Docker swarm setup with at least 3 nodes for true test (https://docs.docker.com/swarm/install-w-machine/)
 
-I've included a script called swarminate.sh to setup the swarm in docker machine with consule for multihost networking.
+I've included a script called swarminate.sh to setup the swarm in docker machine with consule for multihost networking. Just run swarminate.sh up and it will do its thing.
 
 #Usage
 

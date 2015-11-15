@@ -5,14 +5,11 @@ lb0:
   volumes: 
     - ~/.docker/machine/certs/:/etc/docker
   command: "--swarm-url $DOCKER_HOST --swarm-tls-ca-cert=/etc/docker/ca.pem --swarm-tls-cert=/etc/docker/cert.pem --swarm-tls-key=/etc/docker/key.pem --plugin haproxy start"
-  net: "dockersample"
 redis:
   image: redis
   container_name: "redis"
-  net: "dockersample"
 backend:
   build: py_test_app/
-  net: "dockersample"
   ports: 
     - "80"
   environment:
