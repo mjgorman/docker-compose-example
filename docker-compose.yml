@@ -1,0 +1,17 @@
+lb0:
+  image: ehazlett/interlock:latest
+  ports: 
+    - "80:80"
+  volumes: 
+    - ~/.docker/machine/certs/:/etc/docker
+  command: "--swarm-url $DOCKER_HOST --swarm-tls-ca-cert=/etc/docker/ca.pem --swarm-tls-cert=/etc/docker/cert.pem --swarm-tls-key=/etc/docker/key.pem --plugin haproxy start"
+redis:
+  image: redis
+backend:
+  build: py_test_app/
+  ports: 
+    - "80"
+  environment:
+    - INTERLOCK_DATA={"hostname":"python","domain":"swarm.demo"}
+  links:
+    - redis
