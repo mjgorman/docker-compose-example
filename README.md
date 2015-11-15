@@ -4,25 +4,29 @@ This example shows how to setup a scalable application backed by a redis server 
 #Requirements
 
 Docker 1.9
+
 Docker Machine on OSX(Minor changes to compose file needed to run on true cluster)
+
 Docker swarm setup with at least 3 nodes for true test (https://docs.docker.com/swarm/install-w-machine/)
+
+I've included a script called swarminate.sh to setup the swarm in docker machine with consule for multihost networking.
 
 #Usage
 
-##Running the cluster in the foreground
+##Running the cluster(With Multi-host networking) in the foreground
 
-docker-compose up
+docker-compose --x-networking up
 
-##Running the Cluster in the background
+##Running the cluster(With Multi-host networking) in the background
 
-docker-compose up -d
+docker-compose --x-networking up -d
 
 ##Checking the status of the containers
 
 docker-compose ps
 
-## Scaling the app
-docker-compose scale backend=n(number of servers you'd like)
+## Scaling the app(across multiple servers)
+docker-compose --x-networking scale backend=n(number of servers you'd like)
 
 ##Acces the app
 
